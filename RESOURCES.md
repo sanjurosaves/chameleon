@@ -1,9 +1,13 @@
 [http://www.lightlink.com/tjweber/StripWav/WAVE.html#Reading](WAVE File Format)
 
 [https://www.amazon.com/dp/0201419726/?tag=stackoverflow17-20](A Programmer&#39;s Guide to Sound: Tim Kientzle: 9780201419726: Amazon.com: Books)
+
 [https://www.amazon.com/dp/0964350408/?tag=stackoverflow17-20](Who Is Fourier?: A Mathematical Adventure: Transnational College of LEX: 9780964350403: Amazon.com: Books)
+
 [https://books.google.com/books?id=nZ-TetwzVcIC&printsec=frontcover&dq=computer+musical+tutorial&hl=pt-BR&ei=D-dKTaKsBMOB8gbF4KDcDg&sa=X&oi=book_result&ct=result#v=onepage&q=computer%20musical%20tutorial&f=false](The Computer Music Tutorial - Curtis Roads, John Strawn - Google Livros)
+
 [https://stackoverflow.com/questions/4778942/i-want-to-do-a-project-on-sound-programming-but-i-dont-know-where-to-start](audio - I want to do a project on sound programming, but I don&#39;t know where to start - Stack Overflow)
+
 [https://www.reddit.com/r/audioengineering/comments/4p5ixh/best_code_languages_to_learn_for_audio_programming/](Best code languages to learn for audio programming? : audioengineering)
 [https://www.kadenze.com/courses/introduction-to-programming-for-musicians-and-digital-artists/info](Intro to Programming for Musicians &amp; Digital Artists - an Online Programming Course at Kadenze)
 [https://www.amazon.com/Audio-Programming-Book-MIT-Press/dp/0262014467](The Audio Programming Book (The MIT Press): Richard Boulanger, Victor Lazzarini, Max V. Mathews, John ffitch, Richard William Dobson, Matt Ingalls, Eric Lyon, Gabriel Maldonado, Michael Kent Gogins, Craig Stuart Sapp: 9780262014465: Amazon.com: Books)
