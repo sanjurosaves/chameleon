@@ -7,7 +7,9 @@
 
 [A Programmer&#39;s Guide to Sound: Tim Kientzle: 9780201419726: Amazon.com: Books](https://www.amazon.com/dp/0201419726/?tag=stackoverflow17-20)
 
-[The Audio Programming Book (The MIT Press): Richard Boulanger, Victor Lazzarini, Max V. Mathews, John ffitch, Richard William Dobson, Matt Ingalls, Eric Lyon, Gabriel Maldonado, Michael Kent Gogins, Craig Stuart Sapp: 9780262014465: Amazon.com: Books](https://www.amazon.com/Audio-Programming-Book-MIT-Press/dp/0262014467)
+[The Audio Programming Book](http://library.books24x7.com.ezproxy.sfpl.org/toc.aspx?bookid=47537)
+
+
 
 
 ## Deep Math
