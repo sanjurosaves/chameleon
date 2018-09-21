@@ -1,37 +1,73 @@
 [A programmer&#39;s guide to sound](https://archive.org/stream/programmersguide00kien#page/n0)
+
 [MATHEMATICS OF THE DISCRETE FOURIER TRANSFORM (DFT) WITH AUDIO APPLICATIONS SECOND EDITION](https://ccrma.stanford.edu/~jos/mdft/mdft.html)
+
 [FFmpeg - Audacity Wiki](https://wiki.audacityteam.org/wiki/FFmpeg)
+
 [Hydrogenaudio Forums - Index](https://hydrogenaud.io/)
+
 [What open source C/C++ audio compression options are there besides LAME MP3? - Stack Overflow](https://stackoverflow.com/questions/2444955/what-open-source-c-c-audio-compression-options-are-there-besides-lame-mp3)
+
 [MP3&#39;Tech - www.mp3-tech.org](http://www.mp3-tech.org/)
+
 [A tutorial on MPEG/audio compression - IEEE Multimedia](https://www.ee.columbia.edu/~dpwe/papers/Pan95-mpeg-ieeemm.pdf)
+
 [Some facts MPEG Compression](https://users.cs.cf.ac.uk/Dave.Marshall/Multimedia/node277.html)
+
 [blog.bjrn.se: Let’s build an MP3-decoder!](http://blog.bjrn.se/2008/10/lets-build-mp3-decoder.htm)
+
 [KVR: VST Plugins, Audio Units (AU Plugins) &amp; AAX Audio Plugin News, Reviews and Community - plus iOS (iPhone and iPad) and Android Audio App News Too (Virtual Instruments &amp; Virtual Effects)](https://www.kvraudio.com/?t%5b%5d=developers)
+
 [Developing Audio Applications With JUCE (part 1) - Art+Logic: Custom Software Development](https://artandlogic.com/2013/02/developing-audio-applications-with-juce-part-1/)
+
 [marsyas.info/tutorial/tutorial.html](https://wiki.audacityteam.org/wiki/Creating_Nyquist_Plug-ins)
+
 [Xiph.org: libao: a cross platform audio library](https://xiph.org/ao/)
+
 [Xiph.Org Video Presentations: A Digital Media Primer for Geeks](https://xiph.org/video/vid1.shtml)
+
 [CppCon 2015: Timur Doumler “C++ in the Audio Industry” - YouTube](https://www.youtube.com/watch?v=boPEO2auJj4)
+
 [(2) The Audio Programmer - YouTube](https://www.youtube.com/channel/UCpKb02FsH4WH4X_2xhIoJ1A/featured)
+
 [ofx Maximilian &amp; openFrameworks Audio Tutorial 00- Introduction &amp; Audio Output - YouTube](https://www.youtube.com/watch?v=sLCQsWKsrWw&list=PLLgJJsrdwhPxBKE-bWNPj1oq8k_upTWsa)
+
 [#general](https://discordapp.com/channels/382895736356077570/382895736863457281)
+
 [(2) The Audio Programmer - YouTube](https://www.youtube.com/channel/UCpKb02FsH4WH4X_2xhIoJ1A)
+
 [(2) The Best Way To Learn Audio Programming - YouTube](https://www.youtube.com/watch?v=NF-2YwGh638)
+
 [WAVE File Format](http://www.lightlink.com/tjweber/StripWav/WAVE.html)
+
 [Canonical WAVE File Format](http://www.lightlink.com/tjweber/StripWav/Canon.html)
+
 [Learning to work with audio in C++ - Stack Overflow](https://stackoverflow.com/questions/711350/learning-to-work-with-audio-in-c?rq=1)
+
 [audio - I want to do a project on sound programming, but I don&#39;t know where to start - Stack Overflow](https://stackoverflow.com/questions/4778942/i-want-to-do-a-project-on-sound-programming-but-i-dont-know-where-to-start?noredirect=1&lq=1)
+
 [synthesizer - Beginner Digital Synth - Stack Overflow](https://stackoverflow.com/questions/36567/beginner-digital-synth)
+
 [signal processing - I want to learn audio programming - Stack Overflow](https://stackoverflow.com/questions/4801690/i-want-to-learn-audio-programming)
+
 [A Beginner&#39;s Guide to Digital Signal Processing (DSP) | Design Center | Analog Devices](http://www.analog.com/en/design-center/landing-pages/001/beginners-guide-to-dsp.html)
+
 [Music Boxes | Coder Projects](https://googlecreativelab.github.io/coder-projects/projects/music_boxes/)
+
 [10 Audio Processing Projects to start with Deep Learning Applications](https://www.analyticsvidhya.com/blog/2018/01/10-audio-processing-projects-applications/)
+
 [The Audio Programming Book (The MIT Press): Richard Boulanger, Victor Lazzarini, Max V. Mathews, John ffitch, Richard William Dobson, Matt Ingalls, Eric Lyon, Gabriel Maldonado, Michael Kent Gogins, Craig Stuart Sapp: 9780262014465: Amazon.com: Books](https://www.amazon.com/Audio-Programming-Book-MIT-Press/dp/0262014467)
+
 [Intro to Programming for Musicians &amp; Digital Artists - an Online Programming Course at Kadenze](https://www.kadenze.com/courses/introduction-to-programming-for-musicians-and-digital-artists/info)
+
 [Best code languages to learn for audio programming? : audioengineering](https://www.reddit.com/r/audioengineering/comments/4p5ixh/best_code_languages_to_learn_for_audio_programming/)
+
 [audio - I want to do a project on sound programming, but I don&#39;t know where to start - Stack Overflow](https://stackoverflow.com/questions/4778942/i-want-to-do-a-project-on-sound-programming-but-i-dont-know-where-to-start)
+
 [The Computer Music Tutorial - Curtis Roads, John Strawn - Google Livros](https://books.google.com/books?id=nZ-TetwzVcIC&printsec=frontcover&dq=computer+musical+tutorial&hl=pt-BR&ei=D-dKTaKsBMOB8gbF4KDcDg&sa=X&oi=book_result&ct=result#v=onepage&q=computer%20musical%20tutorial&f=false)
+
 [Who Is Fourier?: A Mathematical Adventure: Transnational College of LEX: 9780964350403: Amazon.com: Books](https://www.amazon.com/dp/0964350408/?tag=stackoverflow17-20)
+
 [A Programmer&#39;s Guide to Sound: Tim Kientzle: 9780201419726: Amazon.com: Books](https://www.amazon.com/dp/0201419726/?tag=stackoverflow17-20)
+
 [WAVE File Format](http://www.lightlink.com/tjweber/StripWav/WAVE.html#Reading)
