@@ -3,10 +3,6 @@
 ## Books
 [A programmer&#39;s guide to sound](https://archive.org/stream/programmersguide00kien#page/n0)
 
-[Who Is Fourier?: A Mathematical Adventure: Transnational College of LEX: 9780964350403: Amazon.com: Books](https://www.amazon.com/dp/0964350408/?tag=stackoverflow17-20)
-
-[A Programmer&#39;s Guide to Sound: Tim Kientzle: 9780201419726: Amazon.com: Books](https://www.amazon.com/dp/0201419726/?tag=stackoverflow17-20)
-
 [The Audio Programming Book](http://library.books24x7.com.ezproxy.sfpl.org/toc.aspx?bookid=47537)
 
 
@@ -15,6 +11,8 @@
 
 
 ## Deep Math
+[Who Is Fourier?: A Mathematical Adventure](https://www.amazon.com/dp/0964350408/?tag=stackoverflow17-20)
+
 [MATHEMATICS OF THE DISCRETE FOURIER TRANSFORM (DFT) WITH AUDIO APPLICATIONS SECOND EDITION](https://ccrma.stanford.edu/~jos/mdft/mdft.html)
 
 ## Software
