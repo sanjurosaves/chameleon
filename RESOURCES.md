@@ -28,8 +28,6 @@
 ## Discussions
 [What open source C/C++ audio compression options are there besides LAME MP3? - Stack Overflow](https://stackoverflow.com/questions/2444955/what-open-source-c-c-audio-compression-options-are-there-besides-lame-mp3)
 
-[#general](https://discordapp.com/channels/382895736356077570/382895736863457281)
-
 [Learning to work with audio in C++ - Stack Overflow](https://stackoverflow.com/questions/711350/learning-to-work-with-audio-in-c?rq=1)
 
 [audio - I want to do a project on sound programming, but I don&#39;t know where to start - Stack Overflow](https://stackoverflow.com/questions/4778942/i-want-to-do-a-project-on-sound-programming-but-i-dont-know-where-to-start?noredirect=1&lq=1)
