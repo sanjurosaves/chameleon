@@ -10,6 +10,8 @@
 [The Audio Programming Book](http://library.books24x7.com.ezproxy.sfpl.org/toc.aspx?bookid=47537)
 
 
+## Publications
+[Computer Music Journal](http://www.computermusicjournal.org/)
 
 
 ## Deep Math
