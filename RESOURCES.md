@@ -18,6 +18,8 @@
 [MATHEMATICS OF THE DISCRETE FOURIER TRANSFORM (DFT) WITH AUDIO APPLICATIONS SECOND EDITION](https://ccrma.stanford.edu/~jos/mdft/mdft.html)
 
 ## Software
+[FFmpeg - Wikipedia](https://en.wikipedia.org/wiki/FFmpeg)
+
 [FFmpeg - Audacity Wiki](https://wiki.audacityteam.org/wiki/FFmpeg)
 
 ## Communities
