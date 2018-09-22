@@ -5,6 +5,8 @@
 
 [The Audio Programming Book](http://library.books24x7.com.ezproxy.sfpl.org/toc.aspx?bookid=47537)
 
+[Compression for Great Video and Audio](http://library.books24x7.com.ezproxy.sfpl.org/toc.aspx?site=A5J9N&bookid=36547)
+
 
 ## Publications
 [Computer Music Journal](http://www.computermusicjournal.org/)
