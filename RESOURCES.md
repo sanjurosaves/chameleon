@@ -7,6 +7,8 @@
 
 [Compression for Great Video and Audio](http://library.books24x7.com.ezproxy.sfpl.org/toc.aspx?site=A5J9N&bookid=36547)
 
+[Data Caompression: The Complete Reference](https://archive.org/details/springer_10.1007-b97635)
+
 
 ## Publications
 [Computer Music Journal](http://www.computermusicjournal.org/)
@@ -64,6 +66,8 @@
 
 ## Compression
 [Some facts MPEG Compression](https://users.cs.cf.ac.uk/Dave.Marshall/Multimedia/node277.html)
+
+[MPEG-3 Audio ISO Standard](https://csclub.uwaterloo.ca/~pbarfuss/ISO11172-3.pdf)
 
 
 ## Videos
