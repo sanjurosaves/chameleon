@@ -44,8 +44,10 @@
 
 [audio - I want to do a project on sound programming, but I don&#39;t know where to start - Stack Overflow](https://stackoverflow.com/questions/4778942/i-want-to-do-a-project-on-sound-programming-but-i-dont-know-where-to-start)
 
-## MP3 Standard
+## Specifications / Standards / Formats
 [MP3&#39;Tech - www.mp3-tech.org](http://www.mp3-tech.org/)
+
+[IMA ADPCM](http://www.cs.columbia.edu/~hgs/audio/dvi/IMA_ADPCM.pdf)
 
 ## Wave Format
 [WAVE File Format](http://www.lightlink.com/tjweber/StripWav/WAVE.html)
