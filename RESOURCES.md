@@ -93,6 +93,8 @@
 [A Beginner&#39;s Guide to Digital Signal Processing (DSP) | Design Center | Analog Devices](http://www.analog.com/en/design-center/landing-pages/001/beginners-guide-to-dsp.html)
 
 ## Misc
+[Introduction to Computer Music: Volume One: Chapter Five: Digital Audio](http://www.indiana.edu/~emusic/etext/digital_audio/chapter5_digital.shtml)
+
 [Music Boxes | Coder Projects](https://googlecreativelab.github.io/coder-projects/projects/music_boxes/)
 
 [10 Audio Processing Projects to start with Deep Learning Applications](https://www.analyticsvidhya.com/blog/2018/01/10-audio-processing-projects-applications/)
