@@ -95,6 +95,8 @@
 ## Misc
 [Introduction to Computer Music: Volume One: Chapter Five: Digital Audio](http://www.indiana.edu/~emusic/etext/digital_audio/chapter5_digital.shtml)
 
+[Wiki of Audio Codecs](https://wiki.multimedia.cx/index.php/Category:Audio_Codecs)
+
 [Music Boxes | Coder Projects](https://googlecreativelab.github.io/coder-projects/projects/music_boxes/)
 
 [10 Audio Processing Projects to start with Deep Learning Applications](https://www.analyticsvidhya.com/blog/2018/01/10-audio-processing-projects-applications/)
