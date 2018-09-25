@@ -49,7 +49,8 @@
 
 [IMA ADPCM](http://www.cs.columbia.edu/~hgs/audio/dvi/IMA_ADPCM.pdf)
 
-## Wave Format
+[WAVE sound file format | Creating AIFF Audio Formatted files](http://paulbourke.net/dataformats/audio/)
+
 [WAVE File Format](http://www.lightlink.com/tjweber/StripWav/WAVE.html)
 
 [Canonical WAVE File Format](http://www.lightlink.com/tjweber/StripWav/Canon.html)
