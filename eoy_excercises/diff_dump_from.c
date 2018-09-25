@@ -6,8 +6,8 @@
 /**
  * main - program to dump out each 16-bit sample of a "raw",
  * "uncompressed" stereo PCM file, convert the binary data to a signed 2's
- * complement integer, and calculate and store in a csv file the value of each
- * sample, as well as the difference between the values of each sample.
+ * complement integer, and calculate and store in a csv file the difference
+ * between the integer values of each successive sample.
  * @argv: pointer to array of arguments
  * @argc: count of arguments
  * Return: 0 upon success, 1 upon error
@@ -49,8 +49,8 @@ int main(int argc, char **argv)
 		return (1);
 	}
 
-	fprintf(csv, "sample #,left val,dist from prev left val,");
-	fprintf(csv, "right val,dist from prev rval\n");
+	fprintf(csv, "sample #,dist from prev left val,");
+	fprintf(csv, "dist from prev rval\n");
 
 	for (i = 1; !(feof(pcm)); i++)
 	{
@@ -72,9 +72,9 @@ int main(int argc, char **argv)
 		r = shifteda | (0x00ff & b);
 
 		if (i == 1)
-			fprintf(csv, "%d,%d,%d,%d,%d\n", i, l, 0, r, 0);
+			fprintf(csv, "%d,%d,%d\n", i, l, r);
 		else
-			fprintf(csv, "%d,%d,%d,%d,%d\n", i, l, (l - pl), r, (r - pr));
+			fprintf(csv, "%d,%d,%d\n", i, (l - pl), (r - pr));
 		pl = l;
 		pr = r;
 	}
