@@ -7,7 +7,7 @@
 
 [Compression for Great Video and Audio](http://library.books24x7.com.ezproxy.sfpl.org/toc.aspx?site=A5J9N&bookid=36547)
 
-[Data Caompression: The Complete Reference](https://archive.org/details/springer_10.1007-b97635)
+[Data Compression: The Complete Reference](https://archive.org/details/springer_10.1007-b97635)
 
 
 ## Publications
