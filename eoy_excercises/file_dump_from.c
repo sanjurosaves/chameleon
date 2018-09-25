@@ -31,15 +31,21 @@ int main(int argc, char **argv)
 	short int shifteda;
 
 	if (argc != 3)
+	{
 		perror("Usage: [INPUT PCM FILE] [OUTPUT CSV FILE]\n");
+		return (1);
+	}
 
-	printf("%s\n", argv[1]);
-
-	csv = fopen("output.csv", "w");
-	pcm = fopen("way.pcm", "rb");
+	csv = fopen(argv[2], "w");
+	if (csv == NULL)
+	{
+		printf("Error opening csv file\n");
+		return (1);
+	}
+	pcm = fopen(argv[1], "rb");
 	if (pcm == NULL)
 	{
-		printf("Error opening file\n");
+		printf("Error opening pcm file\n");
 		return (1);
 	}
 
