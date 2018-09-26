@@ -7,7 +7,7 @@
 
 [Compression for Great Video and Audio](http://library.books24x7.com.ezproxy.sfpl.org/toc.aspx?site=A5J9N&bookid=36547)
 
-[Data Caompression: The Complete Reference](https://archive.org/details/springer_10.1007-b97635)
+[Data Compression: The Complete Reference](https://archive.org/details/springer_10.1007-b97635)
 
 
 ## Publications
@@ -49,7 +49,8 @@
 
 [IMA ADPCM](http://www.cs.columbia.edu/~hgs/audio/dvi/IMA_ADPCM.pdf)
 
-## Wave Format
+[WAVE sound file format | Creating AIFF Audio Formatted files](http://paulbourke.net/dataformats/audio/)
+
 [WAVE File Format](http://www.lightlink.com/tjweber/StripWav/WAVE.html)
 
 [Canonical WAVE File Format](http://www.lightlink.com/tjweber/StripWav/Canon.html)
@@ -92,6 +93,10 @@
 [A Beginner&#39;s Guide to Digital Signal Processing (DSP) | Design Center | Analog Devices](http://www.analog.com/en/design-center/landing-pages/001/beginners-guide-to-dsp.html)
 
 ## Misc
+[Introduction to Computer Music: Volume One: Chapter Five: Digital Audio](http://www.indiana.edu/~emusic/etext/digital_audio/chapter5_digital.shtml)
+
+[Wiki of Audio Codecs](https://wiki.multimedia.cx/index.php/Category:Audio_Codecs)
+
 [Music Boxes | Coder Projects](https://googlecreativelab.github.io/coder-projects/projects/music_boxes/)
 
 [10 Audio Processing Projects to start with Deep Learning Applications](https://www.analyticsvidhya.com/blog/2018/01/10-audio-processing-projects-applications/)
