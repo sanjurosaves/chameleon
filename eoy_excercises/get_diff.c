@@ -32,11 +32,8 @@ sample *get_sample(FILE* pcm, int lp, int rp)
 			newsample->r = shifted | (0x00ff & lo);
 	}
 
-	if ((lp == -999999) | (rp == -999999))
-	{
-		newsample->pl = -999999;
-		newsample->pr = -999999;
-	}
+	newsample->pl = lp;
+	newsample->pr = rp;
 
 	return (newsample);
 }
@@ -70,6 +67,11 @@ sample_diff *get_diff_stereo(sample *current_sample)
 	}
 
 	return (newdiff);
+}
+
+qdiff *quantize_diff_stereo(sample_diff *diff)
+{
+
 }
 
 int traverse_pcm_file(void)

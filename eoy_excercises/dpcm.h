@@ -21,7 +21,17 @@ struct stereo_sample_diff {
 	int ldiff, rdiff;
 };
 
+/**
+ * struct stereo_quantized_diff - struct to hold quantized differentials
+ * @ldiff: quantized difference b/w values of left-channel samples
+ * @rdiff: quantized difference b/w values of right-channel samples
+ */
+struct stereo_quantized_diff {
+	short int ldiff, rdiff;
+};
+
 typedef struct stereo_sample sample;
 typedef struct stereo_sample_diff sample_diff;
+typedef struct stereo_quantized_diff qdiff;
 
 #endif
