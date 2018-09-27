@@ -80,10 +80,20 @@ quantz_diff *quantize_diff_stereo(sample_diff *diff)
 
 int save_qdif(FILE *dpcm, quantz_diff *qdif)
 {
-	int num_written = 0;
-	num_written = fwrite(qdif, 2, 2, dpcm);
+	int rval;
+	rval = fputc(qdif->ldiff, dpcm);
+	if (rval != qdif->ldiff)
+	{
+		printf("Error saving quantized sample difference");
+		return (-1);
+	}
+	rval = fputc(qdif->rdiff, dpcm);
+	if (rval != qdif->rdiff)
+	{
+		printf("Error saving quantized sample difference");
+		return (-1);
+	}
 
-	printf("%d\n", num_written);
 	return (0);
 }
 
@@ -94,7 +104,7 @@ int traverse_pcm_file(void)
 	sample *current_sample;
 	sample_diff *diff;
 	quantz_diff *qdif;
-	int lp = -999999, rp = -999999;
+	int lp = -999999, rp = -999999, status = 0;
 
 	pcm = fopen("zebraPCMle.pcm", "rb");
 	dpcm = fopen("zebra.dpcm", "wb");
@@ -113,13 +123,16 @@ int traverse_pcm_file(void)
 		current_sample = get_sample(pcm, lp, rp);
 		diff = get_diff_stereo(current_sample);
 		qdif = quantize_diff_stereo(diff);
-		save_qdif(dpcm, qdif);
+		status = save_qdif(dpcm, qdif);
+		if (status == -1)
+			return (-1);
 
 		lp = current_sample->l;
 		rp = current_sample->r;
 
 		free(current_sample);
 		free(diff);
+		free(qdif);
 	}
 
 	fclose(pcm);
@@ -128,7 +141,36 @@ int traverse_pcm_file(void)
 	return (0);
 }
 
+int decompress_dpcm_to_pcm(void)
+{
+	FILE *dpcm, *pcm;
+	char compressed_sample[1];
+	int decompressed_sample[1];
+	int i;
+
+	dpcm = fopen("zebra.dpcm", "rb");
+	pcm = fopen("newzebra.pcm", "wb");
+
+	for (i = 1; !(feof(dpcm)); i++)
+	{
+		compressed_sample[0] = fgetc(dpcm);
+		if (ferror(dpcm))
+		{
+			int ec = errno;
+
+			printf("ERROR AT SAMPLE #: %d\n", i);
+			printf("ERROR CODE: %d\n", ec);
+			return (-1);
+		}
+		decompressed_sample[0] = exponential[(int)compressed_sample[0]];
+		fwrite(decompressed_sample, 4, 1, pcm);
+	}
+	fclose(dpcm);
+	fclose(pcm);
+
+	return (0);
+}
 int main(void)
 {
-	return (traverse_pcm_file());
+	return (decompress_dpcm_to_pcm());
 }
