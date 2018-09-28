@@ -55,9 +55,9 @@ int compress_pcm_to_dpcm(char *pcm_path, char *dpcm_path)
 int decompress_dpcm_to_pcm(char *dpcm_path, char *pcm_path)
 {
 	FILE *dpcm, *pcm;
-	/* char compressed_sample; */
 	curr_sample *decompressed_sample;
-	int lp, rp, i, index;
+	int lp = 0, rp = 0, i;
+
 
 	if (verify_existance(dpcm_path) == -1)
 	{
@@ -67,11 +67,6 @@ int decompress_dpcm_to_pcm(char *dpcm_path, char *pcm_path)
 
 	dpcm = fopen(dpcm_path, "rb");
 	pcm = fopen(pcm_path, "wb");
-
-	index = fgetc(dpcm);
-	lp = exponential[index];
-	index = fgetc(dpcm);
-	rp = exponential[index];
 
 	for (i = 1; !(feof(dpcm)); i++)
 	{
