@@ -3,7 +3,7 @@
 int compress_pcm_to_dpcm(char *pcm_path, char *dpcm_path)
 {
 	FILE *pcm, *dpcm;
-	unsigned int i;
+	unsigned int i = 1;
 	sample *current_sample;
 	sample_diff *diff;
 	quantz_diff *qdif;
@@ -30,6 +30,8 @@ int compress_pcm_to_dpcm(char *pcm_path, char *dpcm_path)
 		}
 
 		current_sample = get_sample(pcm, lp, rp);
+		if (current_sample == NULL)
+			break;
 		diff = get_diff_stereo(current_sample);
 		qdif = quantize_diff_stereo(diff);
 		status = save_qdif(dpcm, qdif);

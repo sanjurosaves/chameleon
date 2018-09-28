@@ -87,6 +87,11 @@ sample *get_sample(FILE *pcm, int lp, int rp)
 	for (i = 0; i < 2; i++)
 	{
 		hi = fgetc(pcm);
+		if (feof(pcm))
+		{
+			free(newsample);
+			return (NULL);
+		}
 		lo = fgetc(pcm);
 		shifted = (((short)hi) << 8);
 		if (i == 0)
