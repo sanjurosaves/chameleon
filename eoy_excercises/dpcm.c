@@ -5,6 +5,7 @@ int compress_pcm_to_dpcm(char *pcm_path, char *dpcm_path)
 	FILE *pcm, *dpcm;
 	unsigned int i = 1;
 	sample *current_sample;
+	curr_sample *ccs;
 	sample_diff *diff;
 	quantz_diff *qdif;
 	int lp = -999999, rp = -999999, status = 0;
@@ -29,21 +30,39 @@ int compress_pcm_to_dpcm(char *pcm_path, char *dpcm_path)
 			return (-1);
 		}
 
-		current_sample = get_sample(pcm, lp, rp);
-		if (current_sample == NULL)
-			break;
-		diff = get_diff_stereo(current_sample);
-		qdif = quantize_diff_stereo(diff);
-		status = save_qdif(dpcm, qdif);
-		if (status == -1)
-			return (-1);
+		if (i % 8 == 0)
+		{
+			/* insertcheckpoint(); */
+			current_sample = get_sample(pcm, lp, rp);
+			if (current_sample == NULL)
+				break;
 
-		lp = current_sample->l;
-		rp = current_sample->r;
+			lp = current_sample->l;
+			rp = current_sample->r;
 
-		free(current_sample);
-		free(diff);
-		free(qdif);
+			ccs = convert_sample_to_curr_sample(current_sample);
+			save_sample(dpcm, ccs);
+			free(current_sample);
+			free(ccs);
+		}
+		else
+		{
+			current_sample = get_sample(pcm, lp, rp);
+			if (current_sample == NULL)
+				break;
+			diff = get_diff_stereo(current_sample);
+			qdif = quantize_diff_stereo(diff);
+			status = save_qdif(dpcm, qdif);
+			if (status == -1)
+				return (-1);
+
+			lp = current_sample->l;
+			rp = current_sample->r;
+
+			free(current_sample);
+			free(diff);
+			free(qdif);
+		}
 	}
 
 	fclose(pcm);
@@ -55,7 +74,8 @@ int compress_pcm_to_dpcm(char *pcm_path, char *dpcm_path)
 int decompress_dpcm_to_pcm(char *dpcm_path, char *pcm_path)
 {
 	FILE *dpcm, *pcm;
-	curr_sample *decompressed_sample;
+	curr_sample *decompressed_sample, *ccs;
+	sample *current_sample;
 	int lp = 0, rp = 0, i;
 
 
@@ -79,13 +99,29 @@ int decompress_dpcm_to_pcm(char *dpcm_path, char *pcm_path)
 			return (-1);
 		}
 
-		decompressed_sample = reconstruct_sample(dpcm, lp, rp);
-		if (decompressed_sample == NULL)
-			break;
-		lp = decompressed_sample->l;
-		rp = decompressed_sample->r;
-		save_sample(pcm, decompressed_sample);
-		free(decompressed_sample);
+		if (i % 8 == 0)
+		{
+			/* retrieveuncompressedsample(); */
+			current_sample = get_sample(dpcm, lp, rp);
+			if (current_sample == NULL)
+				break;
+			lp = current_sample->l;
+			rp = current_sample->r;
+			ccs = convert_sample_to_curr_sample(current_sample);
+			save_sample(pcm, ccs);
+			free(current_sample);
+			free(ccs);
+		}
+		else
+		{
+			decompressed_sample = reconstruct_sample(dpcm, lp, rp);
+			if (decompressed_sample == NULL)
+				break;
+			lp = decompressed_sample->l;
+			rp = decompressed_sample->r;
+			save_sample(pcm, decompressed_sample);
+			free(decompressed_sample);
+		}
 	}
 	fclose(dpcm);
 	fclose(pcm);

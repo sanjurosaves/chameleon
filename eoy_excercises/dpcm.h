@@ -94,5 +94,6 @@ int compress_pcm_to_dpcm(char *pcm_path, char *dpcm_path);
 int decompress_dpcm_to_pcm(char *dpcm_path, char *pcm_path);
 void save_sample(FILE *pcm, curr_sample *decompressed_sample);
 int verify_existance(char *path);
+curr_sample *convert_sample_to_curr_sample(sample *current_sample);
 
 #endif

@@ -27,7 +27,30 @@ curr_sample *reconstruct_sample(FILE *dpcm, int lp, int rp)
 	compressed_dsample = fgetc(dpcm);
 	rs->r = exponential[(int)compressed_dsample] + rp;
 
+	if (rs->l > 32767)
+		rs->l = 32767;
+	if (rs->l < -32768)
+		rs->l = -32768;
+	if (rs->r > 32767)
+		rs->r = 32767;
+	if (rs->r < -32768)
+		rs->r = -32768;
+
 	return (rs);
+}
+
+curr_sample *convert_sample_to_curr_sample(sample *current_sample)
+{
+	curr_sample *cs;
+
+	cs = malloc(sizeof(curr_sample));
+	if (cs == NULL)
+		return (NULL);
+
+	cs->l = current_sample->l;
+	cs->r = current_sample->r;
+
+	return (cs);
 }
 
 /**
