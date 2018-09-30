@@ -27,7 +27,7 @@ int main(int argc, char **argv)
 	*/
 	FILE *csv, *pcm;
 	char a, b;
-	int i, l, r, pl, pr;
+	int i, l, r;
 	short int shifteda;
 
 	if (argc != 3)
@@ -49,8 +49,7 @@ int main(int argc, char **argv)
 		return (1);
 	}
 
-	fprintf(csv, "sample #,left val,dist from prev left val,");
-	fprintf(csv, "right val,dist from prev rval\n");
+	fprintf(csv, "sample #,left val,right val\n");
 
 	for (i = 1; !(feof(pcm)); i++)
 	{
@@ -71,12 +70,7 @@ int main(int argc, char **argv)
 		shifteda = (((short)a) << 8);
 		r = shifteda | (0x00ff & b);
 
-		if (i == 1)
-			fprintf(csv, "%d,%d,%d,%d,%d\n", i, l, 0, r, 0);
-		else
-			fprintf(csv, "%d,%d,%d,%d,%d\n", i, l, (l - pl), r, (r - pr));
-		pl = l;
-		pr = r;
+		fprintf(csv, "%d,%d\n", l, r);
 	}
 	fclose(csv);
 	fclose(pcm);
