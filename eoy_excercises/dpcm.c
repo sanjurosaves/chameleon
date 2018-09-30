@@ -80,6 +80,8 @@ int decompress_dpcm_to_pcm(char *dpcm_path, char *pcm_path)
 		}
 
 		decompressed_sample = reconstruct_sample(dpcm, lp, rp);
+		if (decompressed_sample == NULL)
+			break;
 		lp = decompressed_sample->l;
 		rp = decompressed_sample->r;
 		save_sample(pcm, decompressed_sample);

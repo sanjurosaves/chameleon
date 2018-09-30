@@ -18,6 +18,11 @@ curr_sample *reconstruct_sample(FILE *dpcm, int lp, int rp)
 		return (NULL);
 
 	compressed_dsample = fgetc(dpcm);
+	if (feof(dpcm))
+	{
+		free(rs);
+		return (NULL);
+	}
 	rs->l = exponential[(int)compressed_dsample] + lp;
 	compressed_dsample = fgetc(dpcm);
 	rs->r = exponential[(int)compressed_dsample] + rp;
