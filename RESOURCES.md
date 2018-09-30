@@ -55,6 +55,8 @@
 
 [Canonical WAVE File Format](http://www.lightlink.com/tjweber/StripWav/Canon.html)
 
+[Inside IMA ADPCM](http://dns.uls.cl/~ej/daa_08/Algoritmos/books/book10/9711m/9711m.htm)
+
 ## Tutorials
 [A tutorial on MPEG/audio compression - IEEE Multimedia](https://www.ee.columbia.edu/~dpwe/papers/Pan95-mpeg-ieeemm.pdf)
 
@@ -71,7 +73,6 @@
 [Some facts MPEG Compression](https://users.cs.cf.ac.uk/Dave.Marshall/Multimedia/node277.html)
 
 [MPEG-3 Audio ISO Standard](https://csclub.uwaterloo.ca/~pbarfuss/ISO11172-3.pdf)
-
 
 ## Videos
 [Xiph.Org Video Presentations: A Digital Media Primer for Geeks](https://xiph.org/video/vid1.shtml)
