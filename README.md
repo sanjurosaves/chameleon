@@ -1,7 +1,7 @@
 # DPCM audio compression encoder & decoder v0.1
 
 ### Description
-Basic implementation of DPCM audio compression, achivieving 1.88:1 compression.
+Imperfect simple implementation of DPCM audio compression, achivieving 1.88:1 compression. This is an extremely basic, purely academic implementation with no practical use case, as the codec yields an extremely noisey audio stream.
 
 ### Environment
 This program was developed and tested on `Ubuntu 14.04 LTS`.
@@ -22,7 +22,7 @@ The original audio source file that gets fed to the encoder must be a stereo (2-
 ### Usage
 ```
 $ ./encode orignal_pcm_file dpcm_file
-$ ./decode dpcm_flie decoded_pcm_file
+$ ./decode dpcm_file decoded_pcm_file
 ```
 
 ###### Example command line calls
