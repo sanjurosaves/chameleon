@@ -45,10 +45,15 @@ unsigned char bsearcharray(int diff, unsigned char min,
 	if (diff == exponential[mid])
 		return (mid);
 
-	return(bsearcharray(diff, min, max));
+	return (bsearcharray(diff, min, max));
 }
 
-int verify_existance(char *path)
+/**
+ * verify_existence - confirm objective reality of file
+ * @path: path of supposed file
+ * Return: -1 if file doesn't exist, 0 if it does exist
+ */
+int verify_existence(char *path)
 {
 	if (access(path, F_OK) == -1)
 		return (-1);

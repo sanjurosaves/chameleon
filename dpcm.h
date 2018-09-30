@@ -84,16 +84,23 @@ typedef struct stereo_sample_diff sample_diff;
 typedef struct stereo_quantized_diff quantz_diff;
 typedef struct stereo_sample_curr curr_sample;
 
-unsigned char bsearcharray(int diff, unsigned char min, unsigned char max);
-sample *get_sample(FILE *pcm, int lp, int rp);
-sample_diff *get_diff_stereo(sample *current_sample);
-quantz_diff *quantize_diff_stereo(sample_diff *diff);
-curr_sample *reconstruct_sample(FILE *dpcm, int lp, int rp);
-int save_qdif(FILE *dpcm, quantz_diff *qdif);
+/* encoding and decoding */
 int compress_pcm_to_dpcm(char *pcm_path, char *dpcm_path);
 int decompress_dpcm_to_pcm(char *dpcm_path, char *pcm_path);
+
+/* sample handling */
+sample *get_sample(FILE *pcm, int lp, int rp);
 void save_sample(FILE *pcm, curr_sample *decompressed_sample);
-int verify_existance(char *path);
+curr_sample *reconstruct_sample(FILE *dpcm, int lp, int rp);
 curr_sample *convert_sample_to_curr_sample(sample *current_sample);
+
+/* delta handling */
+sample_diff *get_diff_stereo(sample *current_sample);
+quantz_diff *quantize_diff_stereo(sample_diff *diff);
+int save_qdif(FILE *dpcm, quantz_diff *qdif);
+
+/* utilities */
+unsigned char bsearcharray(int diff, unsigned char min, unsigned char max);
+int verify_existence(char *path);
 
 #endif

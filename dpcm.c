@@ -1,5 +1,11 @@
 #include "dpcm.h"
 
+/**
+ * compress_pcm_to_dpcm - encodes pcm file to dpcm
+ * @pcm_path: path to pcm file
+ * @dpcm_path: path dpcm file
+ * Return: 0 on success, -1 on failure
+ */
 int compress_pcm_to_dpcm(char *pcm_path, char *dpcm_path)
 {
 	FILE *pcm, *dpcm;
@@ -10,7 +16,7 @@ int compress_pcm_to_dpcm(char *pcm_path, char *dpcm_path)
 	quantz_diff *qdif;
 	int lp = -999999, rp = -999999, status = 0;
 
-	if (verify_existance(pcm_path) == -1)
+	if (verify_existence(pcm_path) == -1)
 	{
 		printf("specified PCM file does not exist");
 		return (-1);
@@ -30,7 +36,7 @@ int compress_pcm_to_dpcm(char *pcm_path, char *dpcm_path)
 			return (-1);
 		}
 
-		if (i % 8 == 0)
+		if (i % 16 == 0)
 		{
 			/* insertcheckpoint(); */
 			current_sample = get_sample(pcm, lp, rp);
@@ -71,6 +77,12 @@ int compress_pcm_to_dpcm(char *pcm_path, char *dpcm_path)
 	return (0);
 }
 
+/**
+ * decompress_dpcm_to_pcm - decodes dpcm file to pcm
+ * @pcm_path: path to pcm file
+ * @dpcm_path: path dpcm file
+ * Return: 0 on success, -1 on failure
+ */
 int decompress_dpcm_to_pcm(char *dpcm_path, char *pcm_path)
 {
 	FILE *dpcm, *pcm;
@@ -79,7 +91,7 @@ int decompress_dpcm_to_pcm(char *dpcm_path, char *pcm_path)
 	int lp = 0, rp = 0, i;
 
 
-	if (verify_existance(dpcm_path) == -1)
+	if (verify_existence(dpcm_path) == -1)
 	{
 		printf("specified DPCM file does not exist");
 		return (-1);
@@ -99,7 +111,7 @@ int decompress_dpcm_to_pcm(char *dpcm_path, char *pcm_path)
 			return (-1);
 		}
 
-		if (i % 8 == 0)
+		if (i % 16 == 0)
 		{
 			/* retrieveuncompressedsample(); */
 			current_sample = get_sample(dpcm, lp, rp);
