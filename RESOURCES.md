@@ -108,3 +108,5 @@
 
 [Point to point wireless audio with limited
 bandwidth and processing](https://brage.bibsys.no/xmlui/bitstream/handle/11250/2370495/566018_FULLTEXT01.pdf?sequence=1)
+
+[Simple Time Domain Audio Coding](https://multimedia.cx/simpleaudio.html)
