@@ -88,6 +88,8 @@
 
 ## Libraries
 [Xiph.org: libao: a cross platform audio library](https://xiph.org/ao/)
+[libsndfile](http://www.mega-nerd.com/libsndfile/)
+[libsndfile package in Ubuntu](https://launchpad.net/ubuntu/+source/libsndfile)
 
 
 ## DSP
