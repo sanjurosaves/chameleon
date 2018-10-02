@@ -57,6 +57,8 @@
 
 [Inside IMA ADPCM](http://dns.uls.cl/~ej/daa_08/Algoritmos/books/book10/9711m/9711m.htm)
 
+[AUD files and IMA-ADPCM](https://web.archive.org/web/20090803193027/http://geocities.com/SiliconValley/8682/aud3.txt)
+
 ## Tutorials
 [A tutorial on MPEG/audio compression - IEEE Multimedia](https://www.ee.columbia.edu/~dpwe/papers/Pan95-mpeg-ieeemm.pdf)
 
@@ -88,7 +90,9 @@
 
 ## Libraries
 [Xiph.org: libao: a cross platform audio library](https://xiph.org/ao/)
+
 [libsndfile](http://www.mega-nerd.com/libsndfile/)
+
 [libsndfile package in Ubuntu](https://launchpad.net/ubuntu/+source/libsndfile)
 
 
