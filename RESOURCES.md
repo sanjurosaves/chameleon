@@ -105,3 +105,6 @@
 [10 Audio Processing Projects to start with Deep Learning Applications](https://www.analyticsvidhya.com/blog/2018/01/10-audio-processing-projects-applications/)
 
 [Intro to Programming for Musicians &amp; Digital Artists - an Online Programming Course at Kadenze](https://www.kadenze.com/courses/introduction-to-programming-for-musicians-and-digital-artists/info)
+
+[Point to point wireless audio with limited
+bandwidth and processing](https://brage.bibsys.no/xmlui/bitstream/handle/11250/2370495/566018_FULLTEXT01.pdf?sequence=1)
