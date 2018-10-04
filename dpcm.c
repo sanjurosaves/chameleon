@@ -35,6 +35,19 @@ int compress_pcm_to_adpcm(char *pcm_path, char *adpcm_path)
 			printf("ERROR CODE: %d\n", ec);
 			return (-1);
 		}
+
+		if ((i % 16 == 0) || (i == 1))
+		{
+			current_sample = get_sample(pcm);
+			if (current_sample == NULL)
+				break;
+
+			lp = current_sample->l;
+			rp = current_sample->r;
+
+			save_sample(adpcm, current_sample);
+			free(current_sample);
+		}
 		else
 		{
 			current_sample = get_sample(pcm);
@@ -71,7 +84,7 @@ int compress_pcm_to_adpcm(char *pcm_path, char *adpcm_path)
 int decompress_adpcm_to_pcm(char *adpcm_path, char *pcm_path)
 {
 	FILE *adpcm, *pcm;
-	curr_sample *decompressed_sample;
+	curr_sample *decompressed_sample, *current_sample;
 	unsigned int i;
 
 	if (verify_existence(adpcm_path) == -1)
@@ -92,6 +105,16 @@ int decompress_adpcm_to_pcm(char *adpcm_path, char *pcm_path)
 			printf("ERROR AT SAMPLE #: %d\n", i);
 			printf("ERROR CODE: %d\n", ec);
 			return (-1);
+		}
+
+		if ((i % 16 == 0) || (i == 1))
+		{
+			current_sample = get_sample(adpcm);
+			if (current_sample == NULL)
+				break;
+
+			save_sample(pcm, current_sample);
+			free(current_sample);
 		}
 		else
 		{
