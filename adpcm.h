@@ -4,6 +4,8 @@
 #include <sndfile.h>
 #include <stdio.h>
 #include <string.h>
+#include <unistd.h>
+#include "dpcm.h"
 
 static const int ima_index_adjust[16] =
 {-1, -1, -1, -1, /* +0 - +3, decrease the step size */

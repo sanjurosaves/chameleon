@@ -1,20 +1,20 @@
 #include "dpcm.h"
+#include "adpcm.h"
 
 /**
- * compress_pcm_to_dpcm - encodes pcm file to dpcm
+ * compress_pcm_to_adpcm - encodes pcm file to adpcm
  * @pcm_path: path to pcm file
- * @dpcm_path: path dpcm file
+ * @adpcm_path: path adpcm file
  * Return: 0 on success, -1 on failure
  */
-int compress_pcm_to_dpcm(char *pcm_path, char *dpcm_path)
+int compress_pcm_to_adpcm(char *pcm_path, char *adpcm_path)
 {
-	FILE *pcm, *dpcm;
+	FILE *pcm, *adpcm;
 	unsigned int i = 1;
-	sample *current_sample;
-	curr_sample *ccs;
-	sample_diff *diff;
+	curr_sample *current_sample;
+	sample_diff *delta;
 	quantz_diff *qdif;
-	int lp = -999999, rp = -999999, status = 0;
+	int lp = 0, rp = 0, status = 0;
 
 	if (verify_existence(pcm_path) == -1)
 	{
@@ -23,7 +23,7 @@ int compress_pcm_to_dpcm(char *pcm_path, char *dpcm_path)
 	}
 
 	pcm = fopen(pcm_path, "rb");
-	dpcm = fopen(dpcm_path, "wb");
+	adpcm = fopen(adpcm_path, "wb");
 
 	for (i = 1; !(feof(pcm)); i++)
 	{
@@ -35,30 +35,15 @@ int compress_pcm_to_dpcm(char *pcm_path, char *dpcm_path)
 			printf("ERROR CODE: %d\n", ec);
 			return (-1);
 		}
-
-		if (i % 16 == 0)
-		{
-			/* insertcheckpoint(); */
-			current_sample = get_sample(pcm, lp, rp);
-			if (current_sample == NULL)
-				break;
-
-			lp = current_sample->l;
-			rp = current_sample->r;
-
-			ccs = convert_sample_to_curr_sample(current_sample);
-			save_sample(dpcm, ccs);
-			free(current_sample);
-			free(ccs);
-		}
 		else
 		{
-			current_sample = get_sample(pcm, lp, rp);
+			current_sample = get_sample(pcm);
 			if (current_sample == NULL)
 				break;
-			diff = get_diff_stereo(current_sample);
-			qdif = quantize_diff_stereo(diff);
-			status = save_qdif(dpcm, qdif);
+/*			printf("l: %d, r: %d\n", current_sample->l, current_sample->r);*/
+			delta = get_diff_stereo(current_sample, lp, rp);
+			qdif = quantize_diff_stereo(delta, lp, rp);
+			status = save_qdif(adpcm, qdif);
 			if (status == -1)
 				return (-1);
 
@@ -66,43 +51,41 @@ int compress_pcm_to_dpcm(char *pcm_path, char *dpcm_path)
 			rp = current_sample->r;
 
 			free(current_sample);
-			free(diff);
+			free(delta);
 			free(qdif);
 		}
 	}
-
+	printf("i: %d\n", i);
 	fclose(pcm);
-	fclose(dpcm);
+	fclose(adpcm);
 
 	return (0);
 }
 
 /**
- * decompress_dpcm_to_pcm - decodes dpcm file to pcm
+ * decompress_adpcm_to_pcm - decodes adpcm file to pcm
  * @pcm_path: path to pcm file
- * @dpcm_path: path dpcm file
+ * @adpcm_path: path adpcm file
  * Return: 0 on success, -1 on failure
  */
-int decompress_dpcm_to_pcm(char *dpcm_path, char *pcm_path)
+int decompress_adpcm_to_pcm(char *adpcm_path, char *pcm_path)
 {
-	FILE *dpcm, *pcm;
-	curr_sample *decompressed_sample, *ccs;
-	sample *current_sample;
-	int lp = 0, rp = 0, i;
+	FILE *adpcm, *pcm;
+	curr_sample *decompressed_sample;
+	unsigned int i;
 
-
-	if (verify_existence(dpcm_path) == -1)
+	if (verify_existence(adpcm_path) == -1)
 	{
 		printf("specified DPCM file does not exist");
 		return (-1);
 	}
 
-	dpcm = fopen(dpcm_path, "rb");
+	adpcm = fopen(adpcm_path, "rb");
 	pcm = fopen(pcm_path, "wb");
 
-	for (i = 1; !(feof(dpcm)); i++)
+	for (i = 1; !(feof(adpcm)); i++)
 	{
-		if (ferror(dpcm))
+		if (ferror(adpcm))
 		{
 			int ec = errno;
 
@@ -110,32 +93,16 @@ int decompress_dpcm_to_pcm(char *dpcm_path, char *pcm_path)
 			printf("ERROR CODE: %d\n", ec);
 			return (-1);
 		}
-
-		if (i % 16 == 0)
-		{
-			/* retrieveuncompressedsample(); */
-			current_sample = get_sample(dpcm, lp, rp);
-			if (current_sample == NULL)
-				break;
-			lp = current_sample->l;
-			rp = current_sample->r;
-			ccs = convert_sample_to_curr_sample(current_sample);
-			save_sample(pcm, ccs);
-			free(current_sample);
-			free(ccs);
-		}
 		else
 		{
-			decompressed_sample = reconstruct_sample(dpcm, lp, rp);
+			decompressed_sample = reconstruct_sample(adpcm);
 			if (decompressed_sample == NULL)
 				break;
-			lp = decompressed_sample->l;
-			rp = decompressed_sample->r;
 			save_sample(pcm, decompressed_sample);
 			free(decompressed_sample);
 		}
 	}
-	fclose(dpcm);
+	fclose(adpcm);
 	fclose(pcm);
 
 	return (0);
