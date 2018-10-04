@@ -25,4 +25,9 @@ static const int ima_step_size[89] =
  32767
 } ;
 
+struct ima_state
+{
+	int li, ri, plv, prv;
+};
+
 #endif

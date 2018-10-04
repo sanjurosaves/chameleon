@@ -1,9 +1,9 @@
 #include "adpcm.h"
 
-#define BUFFER_LEN 5909500
+#define BUFFER_LEN 20
 #define MAX_CHANNELS 2
 
-void adpcm_encode(int *data, int count, int channels, SNDFILE *outputfile, FILE *ofile)
+void adpcm_encode(curr_sample *data, int count, int channels, FILE *outputfile)
 {
 	int i, chan, cur_sample, prev_sample, delta, predicted_delta;
 	unsigned short int sign_bit, code;
@@ -15,11 +15,17 @@ void adpcm_encode(int *data, int count, int channels, SNDFILE *outputfile, FILE 
 	for (i = 0; i < count;)
 		for (chan = 0; chan < channels; chan++, i++)
 		{
-			cur_sample = data[i];
+			if (i % 2 == 0)
+				cur_sample = data[i].l;
+			else
+				cur_sample = data[i].r;
 			if (i < channels)
 				prev_sample = 0;
 			else
-				prev_sample = data[i - channels];
+				if (i % 2 == 0)
+					prev_sample = data[i - channels].l;
+				else
+					prev_sample = data[i - channels].r;
 
 			delta = cur_sample - prev_sample;
 			if (delta < 0)
@@ -49,10 +55,6 @@ void adpcm_encode(int *data, int count, int channels, SNDFILE *outputfile, FILE 
 			else if (prev_sample < -32768)
 				prev_sample = -32768;
 
-			byte_l = code + sign_bit * 8;
-
-			fputc(byte_l, ofile);
-
 			if (i % 2 == 0)
 				byte_l = code + sign_bit * 8;
 			else
@@ -61,23 +63,21 @@ void adpcm_encode(int *data, int count, int channels, SNDFILE *outputfile, FILE 
 				two_encoded_samples =
 					(((short)byte_l) << 8) | (0x00ff & byte_r);
 				short_ptr = &two_encoded_samples;
-				sf_writef_short(outputfile, short_ptr, 1);
+				printf("2ec: %d\n", two_encoded_samples);
+				int wrote = fwrite(short_ptr, 2, 1, outputfile);
+				printf("writecount: %d\n", wrote);
+
 			}
 		}
 }
 
 int main(int argc, char **argv)
 {
-	SNDFILE *infile, *outfile;
+	FILE *infile, *outfile;
 	char* infilename = argv[1];
 	char* outfilename = argv[2];
-	SF_INFO sfinfo;
-	int readcount;
-	static int data[BUFFER_LEN];
-	FILE *ofile;
-
-
-	memset(&sfinfo, 0, sizeof(sfinfo));
+	/* int readcount;*/
+	curr_sample **samples;
 
 	if (argc < 3)
 	{
@@ -85,45 +85,51 @@ int main(int argc, char **argv)
 		return (-1);
 	}
 
-	/* open infile (SFM_READ is mode of sfopen)*/
-	infile = sf_open(infilename, SFM_READ, &sfinfo);
-	if(!infile)
+        if (verify_existence(infilename) == -1)
 	{
-		printf("Not able to open input file");
-		puts(sf_strerror(NULL));
-		return (1);
-	}
-
-	sfinfo.format = 0x010000 | 0x0012;
-	/* open output file */
-	outfile = sf_open(outfilename, SFM_WRITE, &sfinfo);
-	if(!outfile)
-	{
-		printf("Not able to open output file");
-		puts(sf_strerror(NULL));
-		return (1);
-	}
-
-	/* open self-built output file */
-	ofile = fopen("ofiledpcm.wav", "wb");
-
-	if (sfinfo.channels > MAX_CHANNELS)
-	{
-		printf("Input file contains too many channels.");
+		printf("specified PCM file does not exist");
 		return (-1);
 	}
 
-	printf("Format: %d\n", sfinfo.format);
-	printf("Channels: %d\n", sfinfo.channels);
-	printf("Samplerate: %d\n", sfinfo.samplerate);
-	printf("Sections: %d\n", sfinfo.sections);
-
-	while ((readcount = sf_read_int(infile, data, BUFFER_LEN)))
+	infile = fopen(infilename, "rb");
+	if(!infile)
 	{
-		adpcm_encode(data, readcount, sfinfo.channels, outfile, ofile);
+		printf("Not able to open input file");
+		return (-1);
 	}
 
-	fclose(ofile);
-	sf_close(infile);
-	sf_close(outfile);
+	outfile = fopen(outfilename, "wb");
+	if(!outfile)
+	{
+		printf("Not able to open output file");
+		return (-1);
+	}
+
+	/*while ((readcount = fread(data, 2, BUFFER_LEN, infile)))
+	{
+		printf("readcount: %d\n", readcount);
+		adpcm_encode(data, readcount, 2, outfile);
+		}*/
+
+	/*readcount = fread(data, 2, BUFFER_LEN, infile);
+	printf("readcount: %d\n", readcount);
+	for (int k = 0; k < BUFFER_LEN / 2; k++)
+		printf("data[%d]: %d %s", k, data[k], "\n");
+		adpcm_encode(data, readcount, 2, outfile);*/
+
+	samples = malloc(sizeof(struct stereo_sample_curr*) * BUFFER_LEN);
+	for (int k = 0; k < BUFFER_LEN; k++)
+	{
+		samples[k] = get_sample(infile);
+		printf("l: %d ", samples[k]->l);
+		printf("r: %d\n", samples[k]->r);
+	}
+	adpcm_encode(*samples, 1, 2, outfile);
+
+	for (int k = 0; k < BUFFER_LEN; k++)
+		free(samples[k]);
+	free(samples);
+
+	fclose(infile);
+	fclose(outfile);
 }

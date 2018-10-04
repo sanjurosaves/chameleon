@@ -133,7 +133,7 @@ void save_sample(FILE *pcm, curr_sample *decompressed_sample)
 	 * @shifted: high-order byte expanded to 16-bit val, shifted left 8 bits
 	 */
 
-	char hi, lo, i;
+	unsigned char hi, lo, i;
 
 	for (i = 0; i < 2; i++)
 	{
@@ -141,6 +141,7 @@ void save_sample(FILE *pcm, curr_sample *decompressed_sample)
 		{
 			hi = decompressed_sample->l >> 8;
 			lo = decompressed_sample->l & (0x00ff);
+			/* printf("hi: %d lo: %d\n", hi, lo); */
 		}
 		else
 		{

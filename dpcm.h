@@ -60,8 +60,8 @@ typedef struct stereo_quantized_diff quantz_diff;
 typedef struct stereo_sample_curr curr_sample;
 
 /* encoding and decoding */
-int compress_pcm_to_adpcm(char *pcm_path, char *dpcm_path);
-int decompress_adpcm_to_pcm(char *dpcm_path, char *pcm_path);
+int compress_pcm_to_adpcm(int sample, int *index, int *prev);
+int decompress_adpcm_to_pcm(int *index, int *prev, int delta_code);
 
 /* sample handling */
 curr_sample *get_sample(FILE *pcm);
