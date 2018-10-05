@@ -20,7 +20,7 @@ gcc chameleon.c -lsndfile -Wall -Werror -Wextra -pedantic -o chameleon
 ```
 
 ### Usage
-                chameleon <inputfile> output_type
+                chameleon <input_file> output_type
                 Valid output types:
                                         ogg
                                         flac
@@ -28,29 +28,47 @@ gcc chameleon.c -lsndfile -Wall -Werror -Wextra -pedantic -o chameleon
                                         aiff
                                         ima_adpcm_wav
 ```
-$ ./encode orignal_pcm_file dpcm_file
-$ ./decode dpcm_file decoded_pcm_file
+$ ./chameleon input_file output_type
 ```
 
 ###### Example command line calls
 ```
-$ ls -lt | awk '{print $9, $5}' | column -t
-original_zebra.pcm  11818800
-decode              18059
-encode              18064
-$ ./encode original_zebra.pcm z.dpcm
-$ ls -lt | awk '{print $9, $5}' | column -t
-original_zebra.pcm  11818800
-z.dpcm              6278736
-decode              18059
-encode              18064
-$ ./decode z.dpcm new_zebra.pcm
-$ ls -lt | awk '{print $9, $5}' | column -t
-new_zebra.pcm       11818800
-z.dpcm              6278736
-original_zebra.pcm  11818800
-decode              18059
-encode              18064
+$
+$ tree -s
+├── [      13720]  chameleon
+├── [  119306039]  Goo-Dizzy-Iris.flac
+├── [   24285964]  Meshell-FeelingGood.flac
+├── [   31447501]  M.I.A.-BadGirls.flac
+├── [    8418661]  Nina-NobodyKnowsYouWhenYou'reDownandOut.flac
+└── [  123080056]  Tom-American Girl.aif
+
+$
+$ ./chameleon Goo-Dizzy-Iris.flac ogg
+    Goo-Dizzy-Iris.flac -> Goo-Dizzy-Iris.ogg ... ok
+$ ./chameleon Meshell-FeelingGood.flac aiff
+    Meshell-FeelingGood.flac -> Meshell-FeelingGood.aiff ... ok
+$ ./chameleon M.I.A.-BadGirls.flac ima_adpcm_wav
+    M.I.A.-BadGirls.flac -> M.I.A.-BadGirls_ima_adpcm.wav ... ok
+$ ./chameleon Nina-NobodyKnowsYouWhenYou\'reDownandOut.flac wave
+    Nina-NobodyKnowsYouWhenYou'reDownandOut.flac -> Nina-NobodyKnowsYouWhenYou'reDownandOut.wav ... ok
+$ ./chameleon Tom-American\ Girl.aif ogg
+    Tom-American Girl.aif -> Tom-American Girl.ogg ... ok
+$
+$ tree -s
+
+
+├── [      13720]  chameleon
+├── [  119306039]  Goo-Dizzy-Iris.flac
+├── [    5807431]  Goo-Dizzy-Iris.ogg
+├── [   44114166]  Meshell-FeelingGood.aiff
+├── [   24285964]  Meshell-FeelingGood.flac
+├── [   31447501]  M.I.A.-BadGirls.flac
+├── [   10070076]  M.I.A.-BadGirls_ima_adpcm.wav
+├── [    8418661]  Nina-NobodyKnowsYouWhenYou'reDownandOut.flac
+├── [   28565084]  Nina-NobodyKnowsYouWhenYou'reDownandOut.wav
+├── [  123080056]  Tom-American Girl.aif
+└── [    3538576]  Tom-American Girl.ogg
+$
 ```
 
 # Author
