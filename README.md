@@ -10,8 +10,7 @@ This program was developed and tested on `Ubuntu 16.04 LTS`.
 [libsndfile](https://github.com/erikd/libsndfile)
 
 ### Installation & Compilation
-Install the above listed dependency. Try `sudo apt-get install libsndfile1-dev`
-Clone the repository and then compile with gcc using the provided makefile.
+Install the above listed dependency. Try `sudo apt-get install libsndfile1-dev`. The clone the repository and compile with gcc using the provided makefile.
 ```
 $ git clone https://github.com/sanjurosaves/chameleon.git
 $ cd chameleon
@@ -33,7 +32,6 @@ $ ./chameleon input_file output_type
 
 ###### Example command line calls
 ```
-$
 $ tree -s
 ├── [      13720]  chameleon
 ├── [  119306039]  Goo-Dizzy-Iris.flac
@@ -41,7 +39,6 @@ $ tree -s
 ├── [   31447501]  M.I.A.-BadGirls.flac
 ├── [    8418661]  Nina-NobodyKnowsYouWhenYou'reDownandOut.flac
 └── [  123080056]  Tom-American Girl.aif
-
 $
 $ ./chameleon Goo-Dizzy-Iris.flac ogg
     Goo-Dizzy-Iris.flac -> Goo-Dizzy-Iris.ogg ... ok
@@ -55,8 +52,6 @@ $ ./chameleon Tom-American\ Girl.aif ogg
     Tom-American Girl.aif -> Tom-American Girl.ogg ... ok
 $
 $ tree -s
-
-
 ├── [      13720]  chameleon
 ├── [  119306039]  Goo-Dizzy-Iris.flac
 ├── [    5807431]  Goo-Dizzy-Iris.ogg
@@ -68,7 +63,6 @@ $ tree -s
 ├── [   28565084]  Nina-NobodyKnowsYouWhenYou'reDownandOut.wav
 ├── [  123080056]  Tom-American Girl.aif
 └── [    3538576]  Tom-American Girl.ogg
-$
 ```
 
 # Author
