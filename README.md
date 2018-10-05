@@ -1,25 +1,32 @@
-# DPCM audio compression encoder & decoder v0.1
+# CHAMELEON audio transcoder v0.5
 
 ### Description
-Imperfect simple implementation of DPCM audio compression, achivieving 1.88:1 compression. This is an extremely basic, purely academic implementation with no practical use case, as the codec yields an extremely noisey audio stream.
+Linux app to easily convert audio files between formats and compression schemes.
 
 ### Environment
-This program was developed and tested on `Ubuntu 14.04 LTS`.
+This program was developed and tested on `Ubuntu 16.04 LTS`.
+
+### Dependencies
+[libsndfile](https://github.com/erikd/libsndfile)
 
 ### Installation & Compilation
+Install the above listed dependency. Try `sudo apt-get install libsndfile1-dev`
 Clone the repository and then compile with gcc using the provided makefile.
 ```
-$ git clone https://github.com/sanjurosaves/eoy_low_level_audio.git
-$ cd eoy_low_level_audio
+$ git clone https://github.com/sanjurosaves/chameleon.git
+$ cd chameleon
 $ make
-gcc -Wall -Werror -Wextra -pedantic mains/main_compress_pcm_to_dpcm.c dpcm.c deltas.c samples.c util.c -o encode
-gcc -Wall -Werror -Wextra -pedantic mains/main_decompress_dpcm.c dpcm.c deltas.c samples.c util.c -o decode
+gcc chameleon.c -lsndfile -Wall -Werror -Wextra -pedantic -o chameleon
 ```
 
-### Constraints
-The original audio source file that gets fed to the encoder must be a stereo (2-channel) 16-bit little-endian PCM file encodeded at a rate of 44,100 samples per second. This must be a "raw" PCM file. The program is not setup to handle containerized formats such as WAVE or AIFF.
-
 ### Usage
+                chameleon <inputfile> output_type
+                Valid output types:
+                                        ogg
+                                        flac
+                                        wave
+                                        aiff
+                                        ima_adpcm_wav
 ```
 $ ./encode orignal_pcm_file dpcm_file
 $ ./decode dpcm_file decoded_pcm_file
