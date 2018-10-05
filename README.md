@@ -10,7 +10,7 @@ This program was developed and tested on `Ubuntu 16.04 LTS`.
 [libsndfile](https://github.com/erikd/libsndfile)
 
 ### Installation & Compilation
-Install the above listed dependency. Try `sudo apt-get install libsndfile1-dev`. The clone the repository and compile with gcc using the provided makefile.
+Install the above listed dependency. Try `sudo apt-get install libsndfile1-dev`. Then clone the repository and compile with gcc using the provided makefile.
 ```
 $ git clone https://github.com/sanjurosaves/chameleon.git
 $ cd chameleon
